@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="login"
+            type="com.mvvm_example.sample.viewModel.UserModel"/>
+
+        <variable
+            name="userloginEvent"
+            type="com.mvvm_example.sample.commands.userLogin"/>
+
+        <variable
+            name="userdata"
+            type="com.mvvm_example.sample.viewModel.BindModel"/>
+
+        <variable
+            name="userdataView"
+            type="com.mvvm_example.sample.commands.userLogin"/>
+
+
+    </data>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="com.mvvm_example.sample.ui.activity.LoginActivity"
+            >
+
+
+
+            <com.mvvm_example.sample.customViews.EditTextRegular
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:gravity="start|center"
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_12sdp"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionNext"
+                android:hint="@{login.emailHint}"
+                android:text="@={login.email}"
+                android:id="@+id/email_id"
+                />
+            <!--"-->
+
+            <com.mvvm_example.sample.customViews.EditTextRegular
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_12sdp"
+                android:hint="@{login.passwordHint}"
+                android:text="@={login.password}"
+                android:textStyle="normal"
+                android:id="@+id/password_id"/>
+            <!---->
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{(v)->userloginEvent.onClickLogin()}"
+                android:text="@string/Ok"/>
+
+
+            <com.mvvm_example.sample.customViews.TextViewRegular
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:gravity="center"
+                android:id="@+id/ticket_id"
+
+                />
+
+
+
+            <com.mvvm_example.sample.customViews.TextViewRegular
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:gravity="center"
+                android:id="@+id/ticket_name"
+
+                />
+
+
+            <com.mvvm_example.sample.customViews.TextViewRegular
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:gravity="center"
+                android:id="@+id/ticket_desc"
+                />
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/viewData"
+                android:onClick="@{(v)->userloginEvent.showData()}"
+                android:text="@string/View"/>
+
+
+
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerView">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+
+</layout>
